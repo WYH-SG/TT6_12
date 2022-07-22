@@ -93,6 +93,7 @@ function LoginPage() {
                   <div className="form-group">
                       <label>Username: </label>
                       <input
+                          className="niceInput"
                           type="text"
                           placeholder="Enter username"
                           onChange={(e) => {
@@ -102,13 +103,15 @@ function LoginPage() {
                   </div>
                   
                   <div className="form-group">
-                      <label>Password: </label>
+                      <label className ="niceLabel">Password: </label>
                       <input
+                      className="niceInput"
                       type="password"
                       placeholder="Enter password"
                       onChange={(e) => {
                           setPassword(e.target.value); }}
                       />
+
                   </div>
 
                   <button onClick={login} className = 'btn'>Login</button>
