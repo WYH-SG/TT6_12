@@ -69,7 +69,6 @@ function LoginPage() {
     // useEffect() will run everytime we refresh the page
     // Call server index.js get() function for login page
     useEffect(() => {
-
         axios.get("http://localhost:3001/login").then((response) => {
 
             console.log("session", response);

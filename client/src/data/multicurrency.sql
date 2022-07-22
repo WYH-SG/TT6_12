@@ -14,7 +14,7 @@
 
 -- Dumping database structure for multicurrency
 CREATE DATABASE IF NOT EXISTS `multicurrency` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `multicurrency`;
+USE `multicurrency`;useruserwalletuser
 
 -- Dumping structure for table multicurrency.exchange_rate
 CREATE TABLE IF NOT EXISTS `exchange_rate` (

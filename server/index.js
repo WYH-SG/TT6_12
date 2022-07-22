@@ -2,7 +2,6 @@ const express = require('express'); // an instance of the framework
 const mysql = require('mysql2');
 const cors = require('cors'); // import cors from library cors
 
-
 const bcrypt = require('bcrypt'); // for encrypting password
 const saltRounds = 10;
 
@@ -11,6 +10,7 @@ const cookieParser = require('cookie-parser'); // parse all the cookies
 const session = require('express-session'); // create our session & maintain them
 
 // JSON Web Token for authentication
+
 const jwt = require('jsonwebtoken');
 
 
@@ -23,7 +23,7 @@ app.use(cors({
     origin: ["http://localhost:3000"],
     methods: ["GET", "POST"],
     credentials: true
-})); 
+}));
 
 app.use(cookieParser());
 // For bodyParser:
@@ -46,7 +46,7 @@ app.use(session({
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
-    password: "P@ssword1",
+    password: "12345678",
     database: "multicurrency"
 });
 
@@ -110,6 +110,14 @@ app.get('/isUserAuth', verifyJWT, (req, res) => {
     // res.send("User is Authenticated");
 });
 
+//Get user wallet
+app.get('/getWallet', (req, res) => {
+    if (req.session.user) {
+        
+    }
+})
+
+
 // For Login Page, get session
 app.get('/login', (req, res) => {
     if (req.session.user) {
@@ -120,6 +128,99 @@ app.get('/login', (req, res) => {
     } else {
         res.send({ loggedIn: false });
     }
+})
+
+//Get user wallet
+app.post('/getWallets', (req, res) => {
+    const username = req.body.username;
+
+    db.query(
+        "SELECT * FROM wallet w, user u WHERE u.user = ? AND w.id=u.id", username,
+        (err, result) => {
+            if (err) throw err;
+            console.log(results);
+        }
+    )
+})
+
+//Get user wallet
+app.post('/getWallets', (req, res) => {
+    const user_id = req.body.user_id;
+
+    db.query(
+        "SELECT * FROM wallet w, user u WHERE user_id = ? AND w.user_id=u.id", user_id,
+        (err, result) => {
+            if (err) throw err;
+            console.log(results);
+        }
+    )
+})
+
+//Get delete wallet
+app.post('/deleteWallet', (req, res) => {
+    const user_id = req.body.user_id;
+    const wallet_id = req.body.wallet_id;
+
+    db.query(
+        "DROP * FROM wallet WHERE user_id = ? AND wallet_id = ?", [pusername, wallet_id],
+        (err, result) => {
+            if (err) throw err;
+            console.log(results);
+        }
+    )
+})
+
+//Get currency wallet
+app.post('/currency', (req, res) => {
+    const username = req.body.username;
+
+    db.query(
+        "SELECT * FROM wallet w, currency c WHERE w.user_id=c.id", username,
+        (err, result) => {
+            if (err) throw err;
+            console.log(results);
+        }
+    )
+})
+
+//Update currency wallet
+app.post('/updateWallet', (req, res) => {
+    const wallet_id = req.body.username;
+    const amount = req.body.
+
+    db.query(
+        "SELECT * FROM wallet w, currency c WHERE w.user_id=c.id", username,
+        (err, result) => {
+            if (err) throw err;
+            console.log(results);
+        }
+    )
+})
+
+//create transcation
+app.post('/createTransaction', (req, res) => {
+    const wallet_id = req.body.wallet_id;
+    const debit_id = req.body.debit_id;
+    const debit_currency = req.body.debit_currency;
+    const debit_amount = req.body.debit_amount;
+    const credit_id = req.body.credit_id;
+    const credit_currency = req.body.credit_currency;
+    const credit_amount = req.body.credit_amount;
+    const description = req.body.description;
+    const created_at = new Date();
+    const created_by = req.body.username
+    const updated_at = new Date();
+    const updated_by = req.body.username
+
+    db.query(
+        `INSERT INTO transaction (wallet_id, debit_id, debit_currency, debit_amount, credit_id, credit_currency, credit_amount
+             description, created_at, created_by, updated_at, updated_by) VALUES()`,
+        [wallet_id, debit_id, debit_currency, debit_amount, credit_id, credit_currency, credit_amount, description, created_at, created_by, updated_at, updated_by],
+        (err, result) => {
+            if (err) throw err;
+            console.log(results);
+        }
+    )
 })
 
 // From Login Page, when user try to login
