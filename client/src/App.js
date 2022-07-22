@@ -23,16 +23,21 @@ function App() {
                    }}>DBS</h1>
       <Router>
         {/* Create a link to route user to another page */}
-        <Link to ="/"> Login Page </Link>
-        <Link to ="register"> Register </Link>
-        <Link to ="dashboard"> Dashboard </Link>
-        
         <Routes>
           {/* "exact" is only have 1 render and no multiple renders */}
           <Route exact path="/" element={<LoginPage/>} /> 
           <Route exact path="/register" element={<RegisterPage/>} /> 
           <Route exact path="/dashboard" element={<Dashboard/>} /> 
         </Routes>
+        <div>
+          <Link to ="/"> Login Page </Link>
+        </div>
+        <div>
+          <Link to ="register"> Register </Link>
+        </div>
+        <Link to ="dashboard"> Dashboard </Link>
+        
+        
       </Router>
     </div>
   );
