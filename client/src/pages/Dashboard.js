@@ -69,17 +69,20 @@ function Dashboard() {
         <h1>Dashboard</h1>
         <h1>{displayUsername}</h1>
         
-        <div className='exchange-table'>
-          <table className="table">
-            <thead>
-            <tr>{ThData()}</tr>
-            </thead>
-            <tbody>
-            {tdData()}
-            </tbody>
-          </table>
+        <div className="container" style={{maxWidth: "auto"}}>
+          <div className='exchange-table'>
+            <table className="table">
+              <thead>
+              <tr>{ThData()}</tr>
+              </thead>
+              <tbody>
+              {tdData()}
+              </tbody>
+            </table>
 
+          </div>
         </div>
+        
 
         <button onClick={Button} className = 'btn'>Logout</button>
         <button onClick={Button} className = 'btn'>Create</button>
