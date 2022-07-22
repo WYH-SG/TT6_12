@@ -84,9 +84,8 @@ function Dashboard() {
           </div>
         </div>
         <h2>Wallets</h2>
-        <WalletContainer>
-          
-        </WalletContainer>
+        <WalletContainer/>
+        <WalletContainer currency={"USD"} value = {"1000.00"}/>
         
 
         <button onClick={Button} className = 'btn'>Logout</button>
