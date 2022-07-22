@@ -110,14 +110,6 @@ app.get('/isUserAuth', verifyJWT, (req, res) => {
     // res.send("User is Authenticated");
 });
 
-//Get user wallet
-app.get('/getWallet', (req, res) => {
-    if (req.session.user) {
-        
-    }
-})
-
-
 // For Login Page, get session
 app.get('/login', (req, res) => {
     if (req.session.user) {
@@ -128,19 +120,6 @@ app.get('/login', (req, res) => {
     } else {
         res.send({ loggedIn: false });
     }
-})
-
-//Get user wallet
-app.post('/getWallets', (req, res) => {
-    const username = req.body.username;
-
-    db.query(
-        "SELECT * FROM wallet w, user u WHERE u.user = ? AND w.id=u.id", username,
-        (err, result) => {
-            if (err) throw err;
-            console.log(results);
-        }
-    )
 })
 
 //Get user wallet
@@ -183,7 +162,7 @@ app.post('/currency', (req, res) => {
     )
 })
 
-//Update currency wallet
+//Update wallet
 app.post('/updateWallet', (req, res) => {
     const wallet_id = req.body.username;
     const amount = req.body.
