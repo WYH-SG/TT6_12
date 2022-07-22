@@ -30,7 +30,7 @@ function Dashboard() {
       }
     }).then((response) => {
       console.log("userAuthenticated: ", response);
-      setDisplayUsername(response.data);      
+      setDisplayUsername(response.data.message);      
     });
 
   }, []);
@@ -40,7 +40,7 @@ function Dashboard() {
   console.log(exchange_data);
   // Get the table columns
   const column = Object.keys(exchange_data[0]);
-  console.log(column);
+  // console.log(column);
 
   // get table heading data
  const ThData =()=>{    

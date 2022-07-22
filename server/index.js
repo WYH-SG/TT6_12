@@ -106,7 +106,8 @@ const verifyJWT = (req, res, next) => {
 
 // Call the verifyJWT function as middleman
 app.get('/isUserAuth', verifyJWT, (req, res) => {
-    res.send("User is Authenticated");
+    res.json({userId: req.userId, message: "User is Authenticated"});
+    // res.send("User is Authenticated");
 });
 
 // For Login Page, get session
