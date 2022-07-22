@@ -5,6 +5,7 @@ import Table from 'react-bootstrap/Table';
 
 // Import the exchange rate dataset
 import exchange_data from '../data/exchangeRate.json'
+import LoginPage from './LoginPage';
 
 function Dashboard() {
 
@@ -61,14 +62,13 @@ function Dashboard() {
       )
     })
   }
-
+  
   return (
     <div>
-        <h1>dashboard</h1>
+        <h1>Dashboard</h1>
         <h1>{displayUsername}</h1>
         
         <div className='exchange-table'>
-
           <table className="table">
             <thead>
             <tr>{ThData()}</tr>
@@ -79,10 +79,23 @@ function Dashboard() {
           </table>
 
         </div>
-        
-    </div>
+
+        <button onClick={Logout} className = 'btn'>Logout</button>
+        <button onClick={Create} className = 'btn'>Create</button>
+        <button onClick={Remove} className = 'btn'>Remove</button>
+
+    </div>  
   )
 
+  const Logout = ({ color, text, onClick }) => {
+
+  }
+  const Create = ({ color, text, onClick }) => {
+
+  }
+  const Remove = ({ color, text, onClick }) => {
+  }
+  
 }
 
 export default Dashboard
