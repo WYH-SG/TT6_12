@@ -10,30 +10,12 @@ import RegisterPage from './pages/RegisterPage';
 import Dashboard from './pages/Dashboard';
 
 function App() {
-  const [windowDimension, detectHW] = useState({
-    winWidth: window.innerWidth,
-    winHeight: window.innerHeight,
-  })
 
-  const DetectSize = () => {
-    detectHW({
-      winWidth: window.innerWidth,
-      winHeight: window.innerHeight,
-    })
-  }
-
-  useEffect(()=>{
-    window.addEventListener('resize', DetectSize)
-    return()=>{
-      window.removeEventListener('resize', DetectSize)
-    }
-  },[windowDimension])
   
   return (
 
     <div className="App" style={{backgroundColor: "#f7faf9",
-                                 height: windowDimension.winHeight,
-                                 width: windowDimension.winWidth,}}>
+                                 }}>
       {/* Using React Router to route to pages path */}
       <h1 style ={{backgroundColor: "red", 
                    textAlign: "left",
