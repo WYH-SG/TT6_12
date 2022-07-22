@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react';
 import { getTest } from "./functions/test";
 
 function App() {
-  const [data, setData] = useState["Hello World"];
+  const [data, setData] = useState("Hello World");
 
   useEffect (() => {
     getTest()
