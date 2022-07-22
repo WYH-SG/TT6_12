@@ -29,11 +29,11 @@ function App() {
   }
   return (
 
-    <div className="App" style={{backgroundColor: "#363636",
+    <div className="App" style={{backgroundColor: "#f7faf9",
                                  height: windowDimension.winHeight,
                                  width: windowDimension.winWidth,}}>
       {/* Using React Router to route to pages path */}
-      <h1 style ={{backgroundColor: "white", 
+      <h1 style ={{backgroundColor: "red", 
                    textAlign: "left",
                    padding: "10px 10px",
                    }}>DBS app login</h1>
