@@ -8,11 +8,25 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import Dashboard from './pages/Dashboard';
+import { useEffect, useState } from 'react';
+import { getTest } from "./functions/test";
 
 function App() {
-  
+  const [data, setData] = useState["Hello World"];
+
+  useEffect (() => {
+    getTest()
+    .then((res) => {
+      setData(res.message);
+      console.log(res)
+    })
+    .catch(err => console.log(err)); 
+  })
   return (
+
     <div className="App">
+      <h1>{data}</h1>
+
       {/* Using React Router to route to pages path */}
       <Router>
         {/* Create a link to route user to another page */}
