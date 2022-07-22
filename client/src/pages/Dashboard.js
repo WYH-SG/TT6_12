@@ -7,6 +7,7 @@ import Table from 'react-bootstrap/Table';
 import exchange_data from '../data/exchangeRate.json'
 import LoginPage from './LoginPage';
 import Button from './Button';
+import WalletContainer from '../components/WalletContainer';
 
 function Dashboard() {
 
@@ -69,7 +70,7 @@ function Dashboard() {
         <h1>Dashboard</h1>
         <h1>{displayUsername}</h1>
         
-        <div className="container" style={{maxWidth: "auto"}}>
+        <div className="container" style={{maxWidth: "330px"}}>
           <div className='exchange-table'>
             <table className="table">
               <thead>
@@ -82,6 +83,10 @@ function Dashboard() {
 
           </div>
         </div>
+        <h2>Wallets</h2>
+        <WalletContainer>
+          
+        </WalletContainer>
         
 
         <button onClick={Button} className = 'btn'>Logout</button>
