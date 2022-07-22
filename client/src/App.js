@@ -20,13 +20,15 @@ function App() {
       winWidth: window.innerWidth,
       winHeight: window.innerHeight,
     })
-    useEffect(()=>{
-      window.addEventListener('resize', DetectSize)
-      return()=>{
-        window.removeEventListener('resize', DetectSize)
-      }
-    },[windowDimension])
   }
+
+  useEffect(()=>{
+    window.addEventListener('resize', DetectSize)
+    return()=>{
+      window.removeEventListener('resize', DetectSize)
+    }
+  },[windowDimension])
+  
   return (
 
     <div className="App" style={{backgroundColor: "#363636",
