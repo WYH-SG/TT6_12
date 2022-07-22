@@ -111,7 +111,7 @@ function LoginPage() {
                       />
                   </div>
 
-                  <button onClick={login}>Login</button>
+                  <button onClick={login} className = 'btn'>Login</button>
               </div>
           </div>
 

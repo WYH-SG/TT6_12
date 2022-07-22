@@ -20,7 +20,7 @@ function App() {
       <h1 style ={{backgroundColor: "red", 
                    textAlign: "left",
                    padding: "10px 10px",
-                   }}>DBS app login</h1>
+                   }}>DBS</h1>
       <Router>
         {/* Create a link to route user to another page */}
         <Link to ="/"> Login Page </Link>
