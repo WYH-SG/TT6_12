@@ -47,7 +47,7 @@ const db = mysql.createConnection({
     user: "root",
     host: "localhost",
     password: "P@ssword1",
-    database: "react_tut_loginpage"
+    database: "multicurrency"
 });
 
 /***
@@ -58,6 +58,7 @@ const db = mysql.createConnection({
 app.post('/register', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
+    const personName = req.body.personName;
 
     // Hash the password
     // Then use the hash password and pass into DB
@@ -68,8 +69,8 @@ app.post('/register', (req, res) => {
         }
 
         db.query(
-            "INSERT INTO users (username, password) VALUES (?,?)", 
-            [username, hash],
+            "INSERT INTO user (username, password, name) VALUES (?,?,?)", 
+            [username, hash, personName],
             (err, result) => {
                 if (err) {
                     console.log(err);
@@ -127,7 +128,7 @@ app.post('/login', (req, res) => {
 
     // Get the username only, then compare to the hash password
     db.query(
-    "SELECT * FROM users WHERE username = ?;", username,
+    "SELECT * FROM user WHERE username = ?;", username,
     (err, result) => {
         if (err) {
             res.send({err: err});

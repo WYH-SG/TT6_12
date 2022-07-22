@@ -7,6 +7,7 @@ function RegisterPage() {
 
     const [usernameReg, setUsernameReg] = useState("");
     const [passwordReg, setPasswordReg] = useState("");
+    const [personName, setPersonName] = useState("");
 
     var [registerStatus, setRegisterStatus] = useState("");
 
@@ -19,12 +20,12 @@ function RegisterPage() {
 
         // Check if it's empty or null
         // Reference: https://stackoverflow.com/questions/32625513/checking-if-multiple-variables-is-not-null-undefined-or-empty-in-an-efficient-w
-        if(usernameReg && passwordReg) {
+        if(usernameReg && passwordReg && personName) {
             console.log("not null")
 
             axios.post(
                 "http://localhost:3001/register", 
-                {username: usernameReg, password: passwordReg} )
+                {username: usernameReg, password: passwordReg, personName: personName} )
                 .then((response) => {
                     console.log("Registration sucess", response.data);
             });
@@ -61,6 +62,16 @@ function RegisterPage() {
                     placeholder="Enter password"
                     onChange={(e) => {
                         setPasswordReg(e.target.value); }}
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label>Name: </label>
+                    <input
+                    type="text"
+                    placeholder="Enter your name"
+                    onChange={(e) => {
+                        setPersonName(e.target.value); }}
                     />
                 </div>
 
