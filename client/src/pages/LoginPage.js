@@ -41,7 +41,7 @@ function LoginPage() {
                     setMessageDisplay(temp);
 
                     // redirect to another page on successful login
-                    // redirect(); 
+                    redirect(); 
                 }
         });
     }
