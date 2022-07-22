@@ -87,33 +87,35 @@ function LoginPage() {
 
     return (
         <div className='createLoginPage'>
-
+          <div className = "container">
             <h1 className="headerText">Login</h1>
-
             <div className='form-container'>
-                <div className="form-group">
-                    <label>Username: </label>
-                    <input
-                        type="text"
-                        placeholder="Enter username"
-                        onChange={(e) => {
-                            setUsername(e.target.value);
-                        }}
-                    />
-                </div>
-                
-                <div className="form-group">
-                    <label>Password: </label>
-                    <input
-                    type="password"
-                    placeholder="Enter password"
-                    onChange={(e) => {
-                        setPassword(e.target.value); }}
-                    />
-                </div>
+                  <div className="form-group">
+                      <label>Username: </label>
+                      <input
+                          type="text"
+                          placeholder="Enter username"
+                          onChange={(e) => {
+                              setUsername(e.target.value);
+                          }}
+                      />
+                  </div>
+                  
+                  <div className="form-group">
+                      <label>Password: </label>
+                      <input
+                      type="password"
+                      placeholder="Enter password"
+                      onChange={(e) => {
+                          setPassword(e.target.value); }}
+                      />
+                  </div>
 
-                <button onClick={login}>Login</button>
-            </div>
+                  <button onClick={login}>Login</button>
+              </div>
+          </div>
+
+            
 
             {loginStatus && <button onClick={userAuthenticated}>Check Authentication</button> }
             <h1>{messageDisplay}</h1>
