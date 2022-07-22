@@ -2,8 +2,8 @@
 const WalletContainer = ({currency, value}) => {
   return(
     <div className="walletContainer">
-      <h1 style={{textAlign: "center"}}>{currency}</h1>
-      <h3 style={{textAlign: "center"}}>${value}</h3>
+      <h2 style={{textAlign: "center"}}>{currency}</h2>
+      <h1 style={{textAlign: "center"}}>${value}</h1>
     </div>
   )
 }
